@@ -24,7 +24,6 @@ import useStyles from "./styles";
 
 // components
 import { Badge, Typography } from "../Wrappers/Wrappers";
-import Notification from "../Notification/Notification";
 import UserAvatar from "../UserAvatar/UserAvatar";
 
 // context
@@ -34,6 +33,59 @@ import {
   toggleSidebar,
 } from "../../context/LayoutContext";
 import { useUserDispatch, signOut } from "../../context/UserContext";
+
+const messages = [
+  {
+    id: 0,
+    variant: "warning",
+    name: "Jane Hew",
+    message: "Hey! How is it going?",
+    time: "9:32",
+  },
+  {
+    id: 1,
+    variant: "success",
+    name: "Lloyd Brown",
+    message: "Check out my new Dashboard",
+    time: "9:18",
+  },
+  {
+    id: 2,
+    variant: "primary",
+    name: "Mark Winstein",
+    message: "I want rearrange the appointment",
+    time: "9:15",
+  },
+  {
+    id: 3,
+    variant: "secondary",
+    name: "Liana Dutti",
+    message: "Good news from sale department",
+    time: "9:09",
+  },
+];
+
+const notifications = [
+  { id: 0, color: "warning", message: "Check out this awesome ticket" },
+  {
+    id: 1,
+    color: "success",
+    type: "info",
+    message: "What is the best way to get ...",
+  },
+  {
+    id: 2,
+    color: "secondary",
+    type: "notification",
+    message: "This is just a simple notification",
+  },
+  {
+    id: 3,
+    color: "primary",
+    type: "e-commerce",
+    message: "12 new orders has arrived today",
+  },
+];
 
 export default function Header(props) {
   var classes = useStyles();
@@ -83,30 +135,9 @@ export default function Header(props) {
           )}
         </IconButton>
         <Typography variant="h6" weight="medium" className={classes.logotype}>
-           Admin
+         Admin
         </Typography>
-        <div className={classes.grow} />
-        <div
-          className={classNames(classes.search, {
-            [classes.searchFocused]: isSearchOpen,
-          })}
-        >
-          <div
-            className={classNames(classes.searchIcon, {
-              [classes.searchIconOpened]: isSearchOpen,
-            })}
-            onClick={() => setSearchOpen(!isSearchOpen)}
-          >
-            <SearchIcon classes={{ root: classes.headerIcon }} />
-          </div>
-          <InputBase
-            placeholder="Search…"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-          />
-        </div>
+        
       </Toolbar>
     </AppBar>
   );

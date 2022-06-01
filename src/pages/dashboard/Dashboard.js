@@ -1,4 +1,3 @@
-import MUIDataTable from "mui-datatables";
 import React, { useState } from "react";
 import {
   Grid,
@@ -8,24 +7,13 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/styles";
-import {
-  ResponsiveContainer,
-  ComposedChart,
-  AreaChart,
-  LineChart,
-  Line,
-  Area,
-  PieChart,
-  Pie,
-  Cell,
-  YAxis,
-  XAxis,
-} from "recharts";
 
+import MUIDataTable from "mui-datatables";
 // styles
-
+import useStyles from "./styles";
 
 // components
+
 import PageTitle from "../../components/PageTitle";
 
 export default function Dashboard(props) {
@@ -35,32 +23,32 @@ export default function Dashboard(props) {
     ["Bob Herm", "Example Inc.", "Tampa", "FL"],
     ["James Houston", "Example Inc.", "Dallas", "TX"],
     ["Prabhakar Linwood", "Example Inc.", "Hartford", "CT"],
-    ["Kaui Ignace", "Example Inc.", "Yonkers", "NY"],
-    ["Esperanza Susanne", "Example Inc.", "Hartford", "CT"],
-  
+
   ];
 
   return (
     <>
       <PageTitle title="Dashboard" button="Latest Reports" />
       <Grid container spacing={4}>
-        <Grid item xs={12}>
-          <MUIDataTable
-            title="Employee List"
-            data={datatableData}
-            columns={["Name", "Company", "City", "State"]}
-            options={{
-              filterType: "checkbox",
-            }}
-          />
-        </Grid>
-        
+      <Grid container spacing={4}>
+      <Grid item xs={12}>
+        <MUIDataTable
+          title="Employee List"
+          data={datatableData}
+          columns={["Name", "Company", "City", "State"]}
+          options={{
+            filterType: "checkbox",
+          }}
+        />
+      </Grid>
+      
+    </Grid>
       </Grid>
     </>
   );
 }
 
-
+// #######################################################################
 function getRandomData(length, min, max, multiplier = 10, maxDiff = 10) {
   var array = new Array(length).fill();
   let lastValue;
